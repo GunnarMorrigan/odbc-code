@@ -1,0 +1,25 @@
+[package]
+name = "odbc-code"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+tokio = {version = "1", features = ["full", "sync"]}
+
+# I was still on version 5.0 but can't make my code crash potentially to try if it is gone in v8.1.2.
+odbc-api = "8.1.2"
+
+lazy_static = "1.4.0"
+
+# ---------- Errors and Logging ----------
+anyhow = "1.0.71"
+thiserror = "1.0.33"
+
+tracing = { version = "0.1.40", default-features = false, features = [
+    "attributes",
+] }
+tracing-subscriber = { version = "0.3.18", default-features = true, features = [
+    "env-filter",
+] }
